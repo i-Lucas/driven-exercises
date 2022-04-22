@@ -5,8 +5,7 @@ app.use(json());
 
 const tasks = [];
 
-
-app.post("/task", (req, res) => {
+app.post("/tasks", (req, res) => {
 
     const body = req.body;
 
@@ -15,12 +14,12 @@ app.post("/task", (req, res) => {
         isChecked: body.isChecked
     };
 
-    tasks = [...tasks, newTask];
+    // tasks = [...tasks, newTask];
+    tasks.push(newTask);
     res.send(newTask);
 })
 
 app.get("/tasks", (req, res) => {
-
     res.send(tasks);
 })
 
